@@ -57,6 +57,8 @@ const LoginScreen = () => {
                 <span className='or-divider'>or</span>
             </div>
 
+            {error && <h4 style={{textAlign:'center',color:'red'}}>Invalid Credentials</h4>}
+
             <form className='login-form flex-col jc-sb ai-c' onSubmit={submitHandler}>
 
                 <label>
