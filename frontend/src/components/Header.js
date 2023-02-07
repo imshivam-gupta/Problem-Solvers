@@ -13,8 +13,9 @@ const Header = () => {
   let navigate= useNavigate()
 
   const LogoutHandler = async () =>{
-      await dispatch(logout())
-      navigate('/login')
+    window.confirm("Are you sure");
+    {  await dispatch(logout())
+      navigate('/login')}
   }
 
 

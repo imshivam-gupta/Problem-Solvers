@@ -87,6 +87,15 @@ a{
   width: 40%;
 }
 
+
+.navbar .nav a:hover{
+  border-bottom: 2px solid rgb(66, 66, 207);
+  transition: 0.1s ease;
+  font-weight: bolder;
+}
+
+
+
 .navbar .nav .user-block .login-btn,.navbar .nav .user-block .logout-btn{
   padding: 0.35rem 1.2rem;
   border-radius: 5px;
