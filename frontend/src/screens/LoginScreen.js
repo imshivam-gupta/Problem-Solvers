@@ -1,25 +1,44 @@
 import React, { useState,useEffect } from 'react'
 import {useNavigate} from 'react-router-dom'
-import { FcGoogle } from "react-icons/fc";
+import { FcGoogle } from "@react-icons/all-files/fc/FcGoogle";
 import { FaGithub } from "react-icons/fa";
 import { useDispatch,useSelector } from 'react-redux'
 import { login } from '../redux/actions/userActions'
 import { Link } from 'react-router-dom';
-
+import GoogleIcon from '../icons/google.svg'
 
 const LoginScreen = () => {
 
     let navigate = useNavigate();
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const [validated,setValidated] = useState('')
+
 
     const dispatch = useDispatch()
 
     const redirect = window.location.search ? window.location.search.split('=')[1] : '/'
 
+    const authenticate = (password) => {
+        console.log(password);
+        var lowerCaseLetters = /[a-z]/g;
+        var upperCaseLetters = /[A-Z]/g;
+        var numbers = /[0-9]/g;
+        if(!(password.match(lowerCaseLetters))) return "Password does not contain lower case letters";
+        if(!(password.match(upperCaseLetters))) return "Password does not contain upper case letters";
+        if(!(password.match(numbers))) return "Password does not contain numbers";
+        if(!(password.length>8)) return "Password length is not sufficient";
+        
+        return "";
+    }
+
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(login(email, password))
+        console.log(password);
+        
+        let pwd_checker = authenticate(password)
+        if(pwd_checker==='') dispatch(login(email, password))
+        else setValidated(pwd_checker)
     }
 
     const userLogin = useSelector((state) => state.userLogin)
@@ -40,11 +59,11 @@ const LoginScreen = () => {
             <div className='login-heading'>
                 Log in to your account
             </div>
-
+            
             <div className='social-btns flex-col jc-sb ai-c'>
 
                 <div className='google-login-btn soc-btn flex-row jc-c cur-ptr' style={{color:'gray'}}>
-                    <FcGoogle className='social-logo'/>Google
+                    <GoogleIcon className='social-logo'/>Google
                 </div>
 
                 <div className='github-login-btn soc-btn flex-row jc-c cur-ptr' style={{color:'gray'}}>
@@ -84,6 +103,9 @@ const LoginScreen = () => {
                 </label>
 
                 <br />
+
+                {(validated==='')?<></>: validated }
+
                 
                 <div className='sub-or-reg flex-row jc-sa' >
                    <button type='submit' className='cur-ptr'>Login</button>
@@ -97,7 +119,7 @@ const LoginScreen = () => {
         </div>
         
         <div className='right-container'>
-            
+            <img src='images/problem_solver.png'></img>
         </div>
     </div>
   )

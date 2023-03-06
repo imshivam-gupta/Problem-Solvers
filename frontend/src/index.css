@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+:root {
+  --blue: rgb(67, 178, 198);
+  --lightblue:rgb(67, 71, 198);
+}
 
 /* Common CSS */
 
@@ -119,8 +123,9 @@ a{
 
 .login-page .left-container{
   width:25%;
-  min-height: 80vh;
+  min-height: 82vh;
   padding: 2.5%;
+  margin-left: 3vw;
 }
 
 .login-page .left-container .login-heading{
@@ -217,9 +222,17 @@ a{
 .login-page .right-container{
   width:75%;
   background-size: cover;
-  background-color: rgba(26, 46, 198, 0.768);
+  /* background-color: rgba(26, 46, 198, 0.768); */
   z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   /* border-left: 1px solid rgba(68, 68, 68, 0.717); */
+}
+
+.login-page .right-container img{
+  width:60%;
+  height: 70%;
 }
 
 /* .login-page .right-container img{
@@ -246,4 +259,16 @@ a{
 
 .or-divider{
   color:rgb(92, 108, 117);
+}
+
+
+
+/* Practice Screen */
+
+
+.practice-screen{
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 8vh;
 }

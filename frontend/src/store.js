@@ -7,14 +7,17 @@ import thunk from 'redux-thunk'
 import {composeWithDevTools} from 'redux-devtools-extension'
 
 import {  userLoginReducer, userRegisterReducer } from './redux/reducers/userReducer'
+import { getProblemsReducer } from './redux/reducers/problemReducer'
 
 const reducer = combineReducers({
     userLogin        : userLoginReducer,
     userRegister     : userRegisterReducer,
+    getAllProblems: getProblemsReducer,
 })
 
 const userInfoFromStorage = localStorage.getItem('userInfo')?
 JSON.parse(localStorage.getItem('userInfo')): null
+
 
 const initialState = {
     userLogin: {userInfo: userInfoFromStorage}

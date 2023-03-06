@@ -14,14 +14,30 @@ const RegisterScreen = () => {
     const [name,setName] = useState('')
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
+    const [validated,setValidated] = useState('')
 
     const dispatch = useDispatch()
 
     const redirect = window.location.search ? window.location.search.split('=')[1] : '/'
 
+    const authenticate = (password) => {
+        console.log(password);
+        var lowerCaseLetters = /[a-z]/g;
+        var upperCaseLetters = /[A-Z]/g;
+        var numbers = /[0-9]/g;
+        if(!(password.match(lowerCaseLetters))) return "Password does not contain lower case letters";
+        if(!(password.match(upperCaseLetters))) return "Password does not contain upper case letters";
+        if(!(password.match(numbers))) return "Password does not contain numbers";
+        if(!(password.length>8)) return "Password length is not sufficient";
+        
+        return "";
+    }
+
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(register(name,email,password))
+        let pwd_checker = authenticate(password)
+        if(pwd_checker==='')  dispatch(register(name,email,password))
+        else setValidated(pwd_checker)
     }
 
     const userRegister = useSelector((state) => state.userRegister)
@@ -97,6 +113,10 @@ const RegisterScreen = () => {
                 </label>
 
                 <br />
+
+                {(validated==='')?<></>:validated}
+
+                <br />
                 
                 <div className='sub-or-reg flex-row jc-sa' >
                    <button type='submit' className='cur-ptr'>Register</button>
@@ -110,7 +130,7 @@ const RegisterScreen = () => {
         </div>
         
         <div className='right-container'>
-            
+            <img src='images/problem_solver.png'></img>
         </div>
     </div>
   )

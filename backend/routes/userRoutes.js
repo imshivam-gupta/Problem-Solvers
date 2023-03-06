@@ -1,5 +1,6 @@
 const express = require('express');
 const { authUser, registerUser } = require('../controllers/userController');
+const { send_new_user } = require('../mailers/Signup');
 const router = express.Router();
 
  

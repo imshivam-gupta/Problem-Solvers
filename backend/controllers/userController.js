@@ -1,4 +1,5 @@
-const asyncHandler=require('express-async-handler')
+const asyncHandler=require('express-async-handler');
+const { send_new_user } = require('../mailers/Signup');
 const User = require('../models/userModel');
 const generateToken = require('../utils/generateToken');
 
@@ -44,6 +45,8 @@ exports.registerUser = asyncHandler(async(req,res) => {
             email: user.email,
             token: generateToken(user._id)
         })
+
+        send_new_user(user)
     }
 
     else{
