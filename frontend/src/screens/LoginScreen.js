@@ -94,7 +94,7 @@ const LoginScreen = () => {
             Email Address
             <br />
             <input
-              type="text"
+              type="email"
               id="email"
               name="email"
               onChange={(e) => setEmail(e.target.value)}
@@ -122,7 +122,7 @@ const LoginScreen = () => {
             <button type="submit" className="cur-ptr">
               Login
             </button>
-            <span className="flex-row jc-c ai-c ">
+            <span className="flex-row jc-c ai-c">
               {" "}
               Don't have an account? <Link to="/register"> Sign Up</Link>
             </span>

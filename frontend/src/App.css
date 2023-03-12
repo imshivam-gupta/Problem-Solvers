@@ -358,3 +358,9 @@
     transform: scale3d(1, 1, 1);
   }
 }
+
+.cur-or-reg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
