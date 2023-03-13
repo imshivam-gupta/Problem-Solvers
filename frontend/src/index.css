@@ -130,12 +130,14 @@ a {
   font-size: 1.2rem;
   margin-bottom: 2.5rem;
 }
-
+.login-page {
+  height: 20%;
+}
 .login-page .left-container .social-btns .soc-btn {
   border: 2px solid gray;
   border-radius: 5px;
-  width: 70%;
-  padding: 0.5rem 0rem;
+  width: 60%;
+  padding: 0rem;
   box-shadow: lightgrey 0px 1px;
 }
 
@@ -193,10 +195,10 @@ a {
   margin-left: 0.2rem;
 }
 
-.login-page .left-container .social-btns .social-logo {
+.login-page .left-container .social-btns {
   vertical-align: text-top;
-  font-size: 1.7rem;
-  padding: 0rem 1rem;
+  font-size: 1.5rem;
+  padding: 0rem;
 }
 
 .login-page .right-container {
@@ -251,4 +253,16 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.social-logo {
+  font-size: 2.8rem;
+  padding-bottom: 0.2rem;
+  margin-bottom: 0.8rem;
+  padding-right: 1rem;
+}
+
+.soc-btn {
+  height: 43%;
+  padding: 0;
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
+import { ReactComponent as FcGoogle } from "../icons/google.svg";
 import { FaGithub } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { login, register } from "../redux/actions/userActions";
@@ -26,11 +26,29 @@ const RegisterScreen = () => {
     var upperCaseLetters = /[A-Z]/g;
     var numbers = /[0-9]/g;
     if (!password.match(lowerCaseLetters))
-      return "Password does not contain lower case letters";
+      return (
+        <h4 style={{ textAlign: "center", color: "red" }}>
+          Password does not contain lower case letters
+        </h4>
+      );
     if (!password.match(upperCaseLetters))
-      return "Password does not contain upper case letters";
-    if (!password.match(numbers)) return "Password does not contain numbers";
-    if (!(password.length > 8)) return "Password length is not sufficient";
+      return (
+        <h4 style={{ textAlign: "center", color: "red" }}>
+          Password does not contain upper case letters
+        </h4>
+      );
+    if (!password.match(numbers))
+      return (
+        <h4 style={{ textAlign: "center", color: "red" }}>
+          Password does not contain numbers
+        </h4>
+      );
+    if (!(password.length > 8))
+      return (
+        <h4 style={{ textAlign: "center", color: "red" }}>
+          Password length is not sufficient
+        </h4>
+      );
 
     return "";
   };

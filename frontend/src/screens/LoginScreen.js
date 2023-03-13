@@ -25,11 +25,29 @@ const LoginScreen = () => {
     var upperCaseLetters = /[A-Z]/g;
     var numbers = /[0-9]/g;
     if (!password.match(lowerCaseLetters))
-      return "Password does not contain lower case letters";
+      return (
+        <h4 style={{ textAlign: "center", color: "red" }}>
+          Password does not contain lower case letters
+        </h4>
+      );
     if (!password.match(upperCaseLetters))
-      return "Password does not contain upper case letters";
-    if (!password.match(numbers)) return "Password does not contain numbers";
-    if (!(password.length > 8)) return "Password length is not sufficient";
+      return (
+        <h4 style={{ textAlign: "center", color: "red" }}>
+          Password does not contain upper case letters
+        </h4>
+      );
+    if (!password.match(numbers))
+      return (
+        <h4 style={{ textAlign: "center", color: "red" }}>
+          Password does not contain numbers
+        </h4>
+      );
+    if (!(password.length > 8))
+      return (
+        <h4 style={{ textAlign: "center", color: "red" }}>
+          Password length is not sufficient
+        </h4>
+      );
 
     return "";
   };
@@ -62,7 +80,7 @@ const LoginScreen = () => {
             className="google-login-btn soc-btn flex-row jc-c cur-ptr"
             style={{ color: "gray" }}
           >
-            {/* <GoogleIcon className="social-logo" />  */}
+            <FcGoogle className="social-logo" />
             Google
           </div>
 
