@@ -24,3 +24,11 @@ exports.createProblem = asyncHandler(async(req,res)=>{
     res.status(201).json(createdProblem)
     
 })
+
+
+
+exports.getProblemById = asyncHandler(async(req,res)=>{
+    const problem = await Problem.findById(req.params.id)
+    if(problem) return res.json(problem)
+    else res.status(404).json({'message' :'Problem Not Found'})
+})

@@ -7,7 +7,8 @@ const problemSchema=new mongoose.Schema(
         submission  : { type: Number, required: true, default:0},
         difficulty  : { type: String},
         contest_code: { type:String},
-        statment    : { type: String, required: true, default:'Sample Statement'}
+        statment    : { type: String, required: true, default:'Sample Statement'},
+        ans    : { type: String, required: true, default:'Sample Ans'},
     },
     { 
         timestamps: true

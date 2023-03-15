@@ -10,6 +10,7 @@ import PracticeScreen from "./screens/ProblemScreen";
 import FaqScreen from "./screens/FaqScreen";
 import CompeteScreen from "./screens/CompeteScreen";
 import Forum from "./screens/forum";
+import ProblemDescr from "./screens/ProblemDescr";
 
 const App = () => {
   return (
@@ -20,6 +21,7 @@ const App = () => {
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/practice" element={<PracticeScreen />} />
+        <Route path="/practice/:id" element={<ProblemDescr />} />
         <Route path="/faq" element={<FaqScreen />} />
         <Route path="/compete" element={<CompeteScreen />} />
         <Route path="/discuss" element={<Forum />} />
